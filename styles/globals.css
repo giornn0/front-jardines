@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  
 }
 
 a {
@@ -13,6 +14,29 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.bg-color{
+
+  background: hsla(268, 17%, 68%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(268, 17%, 68%, 1) 0%,
+    hsla(234, 75%, 64%, 0.3) 40%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(268, 17%, 68%, 1) 0%,
+    hsla(234, 75%, 64%, 0.3) 40%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(268, 17%, 68%, 1) 0%,
+    hsla(234, 75%, 64%, 0.3) 40%
+  );
 }
 
 @tailwind base;
