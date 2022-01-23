@@ -16,7 +16,21 @@ a {
   box-sizing: border-box;
 }
 
-.bg-color{
+.h-90{
+  height:92.5vh;
+  max-height: fit-content;
+}
+
+.bg-gradient-color-header{
+  background: hsla(236, 21%, 14%, 1);
+
+background: linear-gradient(270deg, hsla(236, 21%, 14%, 0.5) 32%, hsla(234, 75%, 64%, 0.3) 100%);
+
+background: -moz-linear-gradient(270deg, hsla(236, 21%, 14%, 0.5) 32%, hsla(234, 75%, 64%, 0.3) 100%);
+
+background: -webkit-linear-gradient(270deg, hsla(236, 21%, 14%, 0.5) 32%, hsla(234, 75%, 64%, 0.3) 100%);
+}
+.bg-gradient-color{
 
   background: hsla(268, 17%, 68%, 1);
 
@@ -37,6 +51,7 @@ a {
     hsla(268, 17%, 68%, 1) 0%,
     hsla(234, 75%, 64%, 0.3) 40%
   );
+
 }
 
 @tailwind base;
