@@ -1,10 +1,11 @@
 import "../styles/globals.css";
 import { Header } from "../components/Header";
+import {Footer} from  "../components/Footer";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/> */}
+       
       <link
         rel='stylesheet'
         href='https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }) {
         <Header className='header-height'></Header>
         <div className='h-90'>
           <Component {...pageProps} />
+          <Footer/>
         </div>
       </div>
     </>
