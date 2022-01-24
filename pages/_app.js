@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
         href='https://fonts.googleapis.com/icon?family=Material+Icons'
       />
       <div className='w-100 h-max bg-gradient-color'>
-        <Header className='h-10'></Header>
+        <Header className='header-height'></Header>
         <div className='h-90'>
           <Component {...pageProps} />
         </div>

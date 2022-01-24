@@ -5,7 +5,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import CheckBoxSharpIcon from '@mui/icons-material/CheckBoxSharp';
 import CancelSharpIcon from '@mui/icons-material/CancelSharp';
-import { Box, FormControl, Input, InputAdornment } from '@mui/material';
+import { FormControl, Input, InputAdornment } from '@mui/material';
 
 import logo from '../public/logoSchool.png'
 
@@ -23,14 +23,14 @@ export const Header = ()=>{
   return (
 
   <nav className="w-full sticky top-0 flex flex-row md:justify-center justify-between items-center p-4 bg-gradient-color-header border-rose-300">
-      <div className="basis-1/4 justify-center item-center">
-        <Image src={logo} alt="logo" className="w-32 cursor-pointer" />
+      <div className="basis-1/4 flex justify-center item-center">
+        <Image src={logo} alt="logo" className="w-25 cursor-pointer" />
       </div>
-      <div className=" basis-1/4 justify-center item-center">
-      <Box >
+      <div className=" basis-1/2 flex justify-around item-center">
         <FormControl className="w-80 mx-3 px-4 rounded-md bg-slate-400" variant="standard">
           <Input
-            placeholder="Search .."
+            fullWidth
+            placeholder="Buscar .."
             id="searcher"
             value={search}
             onKeyDown={(e)=>{
@@ -53,15 +53,14 @@ export const Header = ()=>{
             }
           />
         </FormControl>
-      </Box>
       </div>
-      <div className=" basis-1/4 justify-center item-center">
-        <div className="flex flex-row w-100 justify-end item-center text-white">
+      <div className=" basis-1/4 flex justify-center item-center">
+        <div className="md:flex hidden flex-row w-100 justify-end item-center text-white">
         <button className="bg-[#2952e3]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
           Login
         </button>
         <button className="bg-[#2952e3] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
-          Registar
+          Registrar
         </button>
         </div>
       </div>
@@ -78,9 +77,13 @@ export const Header = ()=>{
           >
             <li className="text-xl w-full my-2">
               <CloseRoundedIcon onClick={()=>setToggleMenu(false)}/>
-              {options.map((title, index)=>(
-              <NavbarItem key={`item-${index}`} title={title} classProps="my-2 text-lg"/>
-          ))}
+              <button className="bg-[#2952e3]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
+                Login
+              </button>
+              <button className="bg-[#2952e3] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
+                Registrar
+              </button>
+            
             </li>
           </ul>
           )
