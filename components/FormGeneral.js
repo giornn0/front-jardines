@@ -63,7 +63,7 @@ export const FormGeneral = ({ camps, setFormData,model,validator,formData ,submi
   }
   useEffect(() => {
     const status = {}
-    Object.keys(model).forEach(control=> status[control]= validation(control)?true:false)
+    if(model)Object.keys(model).forEach(control=> status[control]= validation(control)?true:false)
     console.log(status)
     console.log(formData)
   }, [formData]);
