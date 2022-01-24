@@ -27,7 +27,7 @@ export const Header = ()=>{
         <Image src={logo} alt="logo" className="w-25 cursor-pointer" />
       </div>
       <div className=" basis-1/2 flex justify-around item-center">
-        <FormControl className="w-80 mx-3 px-4 rounded-md bg-slate-400" variant="standard">
+        <FormControl className="w-80 mx-3 px-4 rounded-md bg-red-200" variant="standard">
           <Input
             fullWidth
             placeholder="Buscar .."
@@ -56,10 +56,10 @@ export const Header = ()=>{
       </div>
       <div className=" basis-1/4 flex justify-center item-center">
         <div className="md:flex hidden flex-row w-100 justify-end item-center text-white">
-        <button className="bg-[#2952e3]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
+        <button className="bg-[#000]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
           Login
         </button>
-        <button className="bg-[#2952e3] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
+        <button className="bg-[#000] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
           Registrar
         </button>
         </div>
