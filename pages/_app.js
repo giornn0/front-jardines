@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
         rel='stylesheet'
         href='https://fonts.googleapis.com/icon?family=Material+Icons'
       />
-      <div className='w-screen h-screen bg-gradient-color'>
+      <div className='w-100 h-max bg-gradient-color'>
         <Header className='h-10'></Header>
         <div className='h-90'>
           <Component {...pageProps} />

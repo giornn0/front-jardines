@@ -7,46 +7,75 @@ import AddBoxTwoToneIcon from '@mui/icons-material/AddBoxTwoTone';
 import CancelTwoToneIcon from '@mui/icons-material/CancelTwoTone';
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import FormHelperText from '@mui/material/FormHelperText';
+import { useEffect, useState } from "react";
 
 const InputPersonal = ({
+  textarea,
   value,
   icon,
   control,
   label,
   variant,
-  select,
   options,
+  handleChange,
+  setFormData
 }) => {
+  const defaultChange = (e)=>{
+    setFormData((prevs)=>({...prevs, [control]: e.target.value}))
+  }
   return (
     <Box sx={{ display: "flex", alignItems: "flex-end" }}>
       {icon}
       <TextField
-        select={select}
+        id={control}
+        select={options?true:false}
+        multiline={textarea?true:false}
+        error
+        rows={textarea?5:0}
         value={value}
         id={control}
         label={label}
         variant={variant ? variant : "standard"}
         margin='normal'
+        onChange={handleChange?handleChange:defaultChange}
         fullWidth
       >
-        {options?.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
+        {options && (
+          <MenuItem key="default" value={''}>
+            Seleccione ..
+          </MenuItem>)
+        }{options?.map((option) => (
+            <MenuItem key={`${option.value}-select`} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
       </TextField>
     </Box>
   );
 };
 
-export const FormGeneral = ({ camps, submit = true }) => {
-  
+export const FormGeneral = ({ camps, setFormData,model,validator,formData ,submit = true }) => {
+  const [validated, setValidated] = useState(model);
+  const validation = (control)=>{
+    if(formData[control]?.length || validator[control]?.required) return formData[control]?.match(validator[control]?.pattern)
+    return true
+  }
+  useEffect(() => {
+    const status = {}
+    Object.keys(model).forEach(control=> status[control]= validation(control)?true:false)
+    console.log(status)
+    console.log(formData)
+  }, [formData]);
   return (
     <Card sx={{ maxWidth: 500 }} className='w-screen' elevation={9}>
       <CardContent className='mt-3'>
         <Box sx={{ "& > :not(style)": { m: 1 } }}>
           {camps?.map((value, index) => (
-            <InputPersonal key={index} {...value}></InputPersonal>
+            <div key={`control-${index}`}>
+              <InputPersonal {...value} setFormData={setFormData} value={formData[value.control]} ></InputPersonal>
+              <FormHelperText  className="text-red-600" id={`${value.control}-text`}>Revisar Campo!</FormHelperText>
+            </div>
           ))}
         </Box>
       </CardContent>

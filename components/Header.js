@@ -1,32 +1,70 @@
 import {useState} from 'react'
+import Image from 'next/image'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import SearchSharpIcon from '@mui/icons-material/SearchSharp';
+import CheckBoxSharpIcon from '@mui/icons-material/CheckBoxSharp';
+import CancelSharpIcon from '@mui/icons-material/CancelSharp';
+import { Box, FormControl, Input, InputAdornment } from '@mui/material';
 
-const NavbarItem = ({title,classProps})=>{
-  return (
-    <li className={`mx-4 cursor-pointer ${classProps}`}>
-      {title}
-    </li>
-  )
-}
+import logo from '../public/logoSchool.png'
 
 export const Header = ()=>{
   const [toggleMenu, setToggleMenu] = useState(false)
-  const options= ["Market","Exchange","Tutorials","Wallets"]
+  const [search, setSearch] = useState('');
+  const cleanSearch = ()=>{
+    setSearch('')
+    searcher.focus() //id from search input
+  }
+  const startSearch = ()=>{
+    console.log(search)
+    cleanSearch()
+  }
   return (
 
-  <nav className="w-full flex md:justify-center justify-between items-center p-4 bg-gradient-color-header border-rose-300">
-      <div className="md:flex-[0.5] flex-initial justify-center item-center">
-        {/* <Image src={logo} alt="logo" className="w-32 cursor-pointer"/> */}
+  <nav className="w-full sticky top-0 flex flex-row md:justify-center justify-between items-center p-4 bg-gradient-color-header border-rose-300">
+      <div className="basis-1/4 justify-center item-center">
+        <Image src={logo} alt="logo" className="w-32 cursor-pointer" />
       </div>
-      <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {options.map((title, index)=>(
-          <NavbarItem key={`item-${index}`} title={title} classProps=""/>
-        ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
+      <div className=" basis-1/4 justify-center item-center">
+      <Box >
+        <FormControl className="w-80 mx-3 px-4 rounded-md bg-slate-400" variant="standard">
+          <Input
+            placeholder="Search .."
+            id="searcher"
+            value={search}
+            onKeyDown={(e)=>{
+              if(e.code==='Escape')return cleanSearch()
+              if(e.code==='Enter')return startSearch()
+            }}
+            onChange={(e)=>{setSearch(e.target.value)}}
+            startAdornment={
+              <InputAdornment position="start">
+                <SearchSharpIcon />
+              </InputAdornment>
+            }
+            endAdornment={
+                search && (
+                  <InputAdornment position="end" className="gap-1">
+                    <CheckBoxSharpIcon className="text-white cursor-pointer bg-slate-600 rounded-md p-1 my-2" onClick={()=>console.log('buscando!!')} />
+                    <CancelSharpIcon className="text-white cursor-pointer bg-red-600 rounded-md p-1 my-2" onClick={cleanSearch} />
+                  </InputAdornment>
+                )
+            }
+          />
+        </FormControl>
+      </Box>
+      </div>
+      <div className=" basis-1/4 justify-center item-center">
+        <div className="flex flex-row w-100 justify-end item-center text-white">
+        <button className="bg-[#2952e3]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
           Login
-        </li>
-      </ul>
+        </button>
+        <button className="bg-[#2952e3] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]">
+          Registar
+        </button>
+        </div>
+      </div>
       <div className="flex relative">
           {toggleMenu ?
           <CloseRoundedIcon className="text-white md:hidden cursor-pointer" onClick={()=>setToggleMenu(false)} />
