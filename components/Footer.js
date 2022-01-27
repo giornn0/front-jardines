@@ -1,50 +1,43 @@
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
-import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
-import Stack from '@mui/material/Stack'
-import Select from '@mui/material/Select'
-import MenuItem from '@mui/material/MenuItem'
+import {
+  Typography,
+  Grid,
+  Stack,
+  MenuItem,
+  Select,
+  Container,
+  Box,
+} from "@mui/material";
+
 export const Footer = () => {
   return (
-    <Box >
-
-      <Container className='h-24'   sx={{ py: 6 }}>
+    <Box>
+      <Container className="h-24" sx={{ py: 6 }}>
         <Stack spacing={4}>
-
-          <Typography>
-            Telefono ? Call 0800-321-2130
-          </Typography>
-
           <Box>
-            <Grid container spacing={4}>
+            <Grid container spacing={3}>
               <Grid item xs={6} md={3}>
                 <Stack spacing={2}>
-                  <Typography variant="caption" component="a" href="#">
-                    FAQ
+                  <h2>About Us</h2>
+            <Typography variant="caption" component="a" href="#">
+                    Careers
                   </Typography>
                   <Typography variant="caption" component="a" href="#">
-                    Investor Relations
+                    Terms & Conditions
                   </Typography>
                   <Typography variant="caption" component="a" href="#">
-                    Privacidad
-                  </Typography>
-                  <Typography variant="caption" component="a" href="#">
-                    Speed Test
+                    Privacy Policy
                   </Typography>
                 </Stack>
               </Grid>
               <Grid item xs={6} md={3}>
                 <Stack spacing={2}>
+                <h2>Custumer Care</h2>
                   <Typography variant="caption" component="a" href="#">
-                    Help Center
+                   Help Center
                   </Typography>
                   <Typography variant="caption" component="a" href="#">
-                    Jobs
-                  </Typography>
-                  <Typography variant="caption" component="a" href="#">
-                    Cookie Preferences
-                  </Typography>
+                  Returns & Refunds
+                   </Typography>
                   <Typography variant="caption" component="a" href="#">
                     Legales
                   </Typography>
@@ -52,31 +45,15 @@ export const Footer = () => {
               </Grid>
               <Grid item xs={6} md={3}>
                 <Stack spacing={2}>
+                <h2>Contact US</h2>
                   <Typography variant="caption" component="a" href="#">
-                    Cuenta
-                  </Typography>
-                <Typography variant="caption" component="a" href="#">
-                    Corporate Information
-                  </Typography>
-                  <Typography variant="caption" component="a" href="#">
-                  Contact Us
-                  </Typography>
-                </Stack>
-              </Grid>
-              <Grid item xs={6} md={3}>
-                <Stack spacing={2}>
-                  <Typography variant="caption" component="a" href="#">
-                    Media Center
-                  </Typography>
-                  <Typography variant="caption" component="a" href="#">
-                  Terminos y Condiciones
+                    Terminos y Condiciones
                   </Typography>
                   <Typography variant="caption" component="a" href="#">
                     Social Media
                   </Typography>
                 </Stack>
               </Grid>
-
             </Grid>
           </Box>
 
@@ -87,24 +64,17 @@ export const Footer = () => {
               size="small"
               defaultValue="EN"
               sx={{
-                borderWidth: '2px',
-                borderStyle: 'solid',
-               
+                borderWidth: "2px",
+                borderStyle: "solid",
               }}
             >
-             
-             <MenuItem value="ESP">Español</MenuItem>
+              <MenuItem value="ESP">Español</MenuItem>
               <MenuItem value="EN">English</MenuItem>
             </Select>
-              
           </Box>
-          <Typography variant="caption">Colegios App</Typography>
-        
 
         </Stack>
       </Container>
-
     </Box>
-  )
-}
-
+  );
+};
