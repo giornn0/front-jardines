@@ -7,7 +7,7 @@ import CheckBoxSharpIcon from '@mui/icons-material/CheckBoxSharp';
 import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 import { FormControl, Input, InputAdornment } from '@mui/material';
 
-import logo from '../public/logoSchool.png'
+import logo from '../public/logoDefinitivo.png'
 
 export const Header = ()=>{
   const [toggleMenu, setToggleMenu] = useState(false)
