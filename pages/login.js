@@ -1,19 +1,63 @@
-import Image from 'next/image'
-import loginImage from '../public/portrait.jpeg'
-
+import Image from "next/image";
+import {
+  Grid,
+  Paper,
+  Button,
+  Typography,
+  Link,
+  TextField,
+} from "@mui/material";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Avatar from "@mui/material/Avatar";
+import LockIcon from "@mui/icons-material/Lock";
 const Login = () => {
+  const paperStyle = {
+    padding: 20,
+    height: "70vh",
+    width: 280,
+    margin: "20px auto",
+  };
+  const avatarStyle = { backgroundColor: "black" };
+  const btnstyle={margin:'8px 0'}
   return (
-    <div className='flex w-full justify-center items-center bg-color h-screen'>
-      <div className='flex basis-1/2 w-80'>
-      </div>
-      <div className='flex-1/2'>
-        <Image
-        className="opacity-40 w-full h-full"
-        src={loginImage}
-        alt="portrait"
-        ></Image>
-      </div>
-    </div>
+    <Grid >
+      <Paper elevation={10} style={paperStyle}>
+        <Grid align='center'>
+          <Avatar style={avatarStyle}>
+            <LockIcon />
+          </Avatar>
+          <h2>SIGN IN</h2>
+        </Grid>
+        <TextField
+          label="Username"
+          placeholder="Enter username"
+          fullWidth
+          required
+        />
+        <TextField
+          label="Password"
+          placeholder="Enter password"
+          type="password"
+          fullWidth
+          required
+        />
+        <FormControlLabel
+          control={<Checkbox name="checkedB" color="primary" />}
+          label="Remember me"
+        />
+        <Button type="submit" color="primary" variant="contained" style={btnstyle} fullWidth>
+          Sign In
+        </Button>
+        <Typography>
+          <Link href="#">Forgot password ?</Link>
+        </Typography>
+        <Typography>
+          {" "}
+          Do you have an account ?<Link href="#">Sign Up</Link>
+        </Typography>
+      </Paper>
+    </Grid>
   );
 };
 
