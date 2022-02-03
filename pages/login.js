@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import {
   Grid,
   Paper,
@@ -11,6 +11,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Avatar from "@mui/material/Avatar";
 import LockIcon from "@mui/icons-material/Lock";
+import { useState } from "react";
 const Login = () => {
   const paperStyle = {
     padding: 20,
@@ -20,6 +21,37 @@ const Login = () => {
   };
   const avatarStyle = { backgroundColor: "black" };
   const btnstyle={margin:'8px 0'}
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  const [validEmail,setValidEmail] = useState(true);
+  const [validPassword,setValidPassword] = useState(true);
+
+
+   const setValue = (value,control) =>{
+    if(control == 'email')setEmail(value)
+    if(control == 'password')setPassword(value)
+  }
+
+  const testValidation = (control) =>{
+    if(control == 'email' && !email.match(/^[A-Za-z]{2,5}@[A-Za-z]{2,5}.com$/))setValidEmail(false)
+     else setValidEmail(true)
+     if(control == 'password')setValidEmail(value)
+  }
+ 
+
+ const testValidation2 = (control) =>{
+   if(control == 'password' && !password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/))setPassword(false)
+   else setValidPassword(true)
+ }
+
+  const login = () =>{
+   if(validEmail && validPassword) {
+     console.log({email,password})
+   }
+  }
+
+
+  //uses state y validar cuando quiera mandar que sea un mail y una contrasena
   return (
     <Grid >
       <Paper elevation={10} style={paperStyle}>
@@ -34,6 +66,9 @@ const Login = () => {
           placeholder="Enter username"
           fullWidth
           required
+          error={!validEmail}
+          onChange = {(e) => {setValue(e.target.value,'email')}}
+          onBlur={()=>{testValidation('email')}}
         />
         <TextField
           label="Password"
@@ -41,20 +76,23 @@ const Login = () => {
           type="password"
           fullWidth
           required
+          onChange = {(e) => {setValue(e.target.value,'password')}}
+          onBlur={()=>{testValidation2('password')}}
         />
         <FormControlLabel
           control={<Checkbox name="checkedB" color="primary" />}
           label="Remember me"
         />
-        <Button type="submit" color="primary" variant="contained" style={btnstyle} fullWidth>
+        <Button type="submit" color="primary" variant="contained" style={btnstyle} fullWidth onClick={login}>
           Sign In
         </Button>
         <Typography>
-          <Link href="#">Forgot password ?</Link>
+          <Link style={{ textDecoration: "none",color:'black' }} >Forgot password ?</Link>
         </Typography>
         <Typography>
-          {" "}
-          Do you have an account ?<Link href="#">Sign Up</Link>
+         
+          Do you have an account ?
+          <Link  to='/register'style={{ textDecoration: "none",color:'black' }}>Sign Up</Link>
         </Typography>
       </Paper>
     </Grid>
