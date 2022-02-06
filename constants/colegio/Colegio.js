@@ -54,5 +54,5 @@ export const Validator = {
   domicilio:{required:true,pattern:/^[A-Za-z0-9 ]{3,255}$/},
   descripcion:{required:true,pattern:/^[A-Za-z ]{3,255}$/},
   telefono:{required:true,pattern:/^\+?[0-9 ]{3,15}$/},
-  email:{required:true,pattern:/^[A-Za-z.]{3,30}@[A-Za-z.]{3,30}\.(com|net)(\.(ar|cl|ur))?$/},
+  email:{required:true,pattern:/^[A-Za-z.0-9]{3,30}@[A-Za-z.]{3,30}\.(com|net)(\.(ar|cl|ur))?$/},
 }

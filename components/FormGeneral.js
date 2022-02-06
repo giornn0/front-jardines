@@ -61,12 +61,12 @@ export const FormGeneral = ({ camps, setFormData,model,validator,formData ,submi
     if(formData[control]?.length || validator[control]?.required) return formData[control]?.match(validator[control]?.pattern)
     return true
   }
-  useEffect(() => {
-    const status = {}
-    if(model)Object.keys(model).forEach(control=> status[control]= validation(control)?true:false)
-    console.log(status)
-    console.log(formData)
-  }, [formData]);
+  // useEffect(() => {
+  //   const status = {}
+  //   if(model)Object.keys(model).forEach(control=> status[control]= validation(control)?true:false)
+  //   console.log(status)
+  //   console.log(formData)
+  // }, [formData]);
   return (
     <Card sx={{ maxWidth: 500 }} className='w-screen' elevation={9}>
       <CardContent className='mt-3'>
