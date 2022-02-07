@@ -75,25 +75,26 @@ export const Footer = () => {
               <Grid item xs={6} md={3}>
                 <Stack spacing={1}>
                   <h2>Social Media</h2>
-                  <Typography>
                     <Grid className="icons">
-                        <Link style={{ textDecoration: "none",color:'black' }} href="https://www.facebook.com/" target="_blank" spacing={0.5}>
+                      <Typography><Link style={{ textDecoration: "none",color:'black' }} href="https://www.facebook.com/" target="_blank" spacing={0.5}>
                       <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#345ead]" onMouseEnter={()=>{setHovering('face')}} onMouseLeave={()=>setHovering('')}>
                           <FacebookIcon className={hovering=='face'?'text-white':'text-black'} />
                       </Button>
-                        </Link>
-                        <Link style={{ textDecoration: "none",color:'black' }}  href="https://www.instagram.com/" target="_blank" spacing={0.5}>
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#b1476a]" onMouseEnter={()=>{setHovering('insta')}} onMouseLeave={()=>setHovering('')}>
+                        </Link></Typography>
+                      <Typography><Link style={{ textDecoration: "none",color:'black' }}  href="https://www.instagram.com/" target="_blank" spacing={0.5}>
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#da385b]" onMouseEnter={()=>{setHovering('insta')}} onMouseLeave={()=>setHovering('')}>
                           <InstagramIcon className={hovering=='insta'?'text-white':'text-black'}/>
                       </Button>
-                        </Link>
-                        <Link style={{ textDecoration: "none",color:'black' }}  href="https://www.twitter.com/" target="_blank" spacing={0.5}>
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#357d8f]" onMouseEnter={()=>{setHovering('twitter')}} onMouseLeave={()=>setHovering('')}>
+                        </Link></Typography>
+                      <Typography><Link style={{ textDecoration: "none",color:'black' }}  href="https://www.twitter.com/" target="_blank" spacing={0.5}>
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#acddec]" onMouseEnter={()=>{setHovering('twitter')}} onMouseLeave={()=>setHovering('')}>
                           <TwitterIcon className={hovering=='twitter'?'text-white':'text-black'}/>
                       </Button>
-                        </Link>
+                        </Link></Typography>
+                        
+                        
+                        
                     </Grid>
-                  </Typography>
                 </Stack>
               </Grid>
             </Grid>

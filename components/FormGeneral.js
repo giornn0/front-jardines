@@ -2,12 +2,11 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import MenuItem from "@mui/material/MenuItem";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import Fab from '@mui/material/Fab';
 import AddBoxTwoToneIcon from '@mui/icons-material/AddBoxTwoTone';
 import CancelTwoToneIcon from '@mui/icons-material/CancelTwoTone';
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import FormHelperText from '@mui/material/FormHelperText';
 import { useEffect, useState } from "react";
 
 const InputPersonal = ({
@@ -55,7 +54,7 @@ const InputPersonal = ({
   );
 };
 
-export const FormGeneral = ({ camps, setFormData,model,validator,formData ,submit = true }) => {
+export const FormGeneral = ({ camps,setFormData,model,validator,formData,submit,header}) => {
   const [validated, setValidated] = useState(model);
   const validation = (control)=>{
     if(formData[control]?.length || validator[control]?.required) return formData[control]?.match(validator[control]?.pattern)
@@ -69,6 +68,7 @@ export const FormGeneral = ({ camps, setFormData,model,validator,formData ,submi
   // }, [formData]);
   return (
     <Card sx={{ maxWidth: 500 }} className='w-screen' elevation={9}>
+      {header?(header):null}
       <CardContent className='mt-3'>
         <Box sx={{ "& > :not(style)": { m: 1 } }}>
           {camps?.map((value, index) => (
@@ -79,7 +79,7 @@ export const FormGeneral = ({ camps, setFormData,model,validator,formData ,submi
           ))}
         </Box>
       </CardContent>
-      {submit && (
+      {submit? (submit): (
         <CardActions className='flex justify-between mt-3 w-full'>
           <Fab className="hover:bg-rose-700 text-rose-100  bg-red-400 m-3 w-full" variant='extended' color='error' aria-label='add'>
             <CancelTwoToneIcon sx={{ mr: 1 }} />
