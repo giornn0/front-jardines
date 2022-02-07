@@ -30,7 +30,7 @@ export const Header = ()=>{
         <FormControl className="w-80 mx-3 px-4 rounded-md bg-red-200" variant="standard">
           <Input
             fullWidth
-            placeholder="Buscar .."
+            placeholder="Search .."
             id="searcher"
             value={search}
             onKeyDown={(e)=>{
