@@ -31,7 +31,7 @@ const InputPersonal = ({
         id={control}
         select={options?true:false}
         multiline={textarea?true:false}
-        error
+        // error
         rows={textarea?5:0}
         value={value}
         id={control}
@@ -74,7 +74,7 @@ export const FormGeneral = ({ camps, setFormData,model,validator,formData ,submi
           {camps?.map((value, index) => (
             <div key={`control-${index}`}>
               <InputPersonal {...value} setFormData={setFormData} value={formData[value.control]} ></InputPersonal>
-              <FormHelperText  className="text-red-600" id={`${value.control}-text`}>Revisar Campo!</FormHelperText>
+              {/* <FormHelperText  className="text-red-600" id={`${value.control}-text`}>Revisar Campo!</FormHelperText> */}
             </div>
           ))}
         </Box>

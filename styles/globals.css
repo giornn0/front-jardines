@@ -63,3 +63,7 @@ a {
   min-height:calc(100vh - 100px);
   max-height: fit-content;
 }
+.h-wo-layout{
+  min-height:100vh;
+  max-height: fit-content;
+}

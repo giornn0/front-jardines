@@ -12,7 +12,7 @@ export default function FormColegio(){
     console.log(formData)
   },[formData])
   return (
-    <div className="flex flex-col min-h-screen h-max w-100 justify-center items-center mt-24">
+    <div className="flex flex-col min-h-screen h-max w-100 justify-center items-center">
       <FormGeneral camps={colegioCampos} formData={formData} setFormData={setFormData} validator={Validator} model={Colegio}></FormGeneral>
     </div>
   )

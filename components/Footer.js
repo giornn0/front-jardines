@@ -15,8 +15,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 
 export const Footer = () => {
   return (
-    <Grid>
-      <Container className="h-24" sx={{ py: 6 }}>
+    <Grid >
+      <Container className="h-max" sx={{ py: 6 }}>
         <Stack spacing={2}>
           <Box>
             <Grid container spacing={4}>
@@ -74,17 +74,17 @@ export const Footer = () => {
                   <h2>Social Media</h2>
                   <Typography>
                     <Grid className="icons">
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[white]">
-                        <Link style={{ textDecoration: "none",color:'black' }} spacing={0.5}>
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#345ead]">
+                        <Link style={{ textDecoration: "none",color:'black' }} href="https://www.facebook.com/" target="_blank" spacing={0.5}>
                           <FacebookIcon />
                         </Link>
                       </Button>
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[white]">
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#b1476a]">
                         <Link style={{ textDecoration: "none",color:'black' }} spacing={0.5}>
                           <InstagramIcon />
                         </Link>
                       </Button>
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[white]">
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#357d8f]">
                         <Link style={{ textDecoration: "none",color:'black' }} spacing={0.5}>
                           <TwitterIcon />
                         </Link>
@@ -94,22 +94,6 @@ export const Footer = () => {
                 </Stack>
               </Grid>
             </Grid>
-          </Box>
-
-          <Box>
-            <Select
-              name="lang"
-              variant="outlined"
-              size="small"
-              defaultValue="EN"
-              sx={{
-                borderWidth: "2px",
-                borderStyle: "solid",
-              }}
-            >
-              <MenuItem value="ESP">Español</MenuItem>
-              <MenuItem value="EN">English</MenuItem>
-            </Select>
           </Box>
         </Stack>
       </Container>

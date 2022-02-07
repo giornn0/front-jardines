@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
       rel='stylesheet'
       href='https://fonts.googleapis.com/icon?family=Material+Icons'
     />
-      <div className='w-100 h-max bg-gradient-color'>
+      <div className='w-100 h-wo-layout bg-gradient-color'>
         {
           getLayout(<Component {...pageProps} />)
         }
