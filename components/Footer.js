@@ -2,6 +2,8 @@ import {
   Typography,
   Grid,
   Stack,
+  MenuItem,
+  Select,
   Container,
   Box,
   Link,
@@ -70,7 +72,7 @@ export const Footer = () => {
               <Grid item xs={6} md={3}>
                 <Stack spacing={1}>
                   <h2>Social Media</h2>
-                  <Typography>
+                
                     <Grid className="icons">
                       <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#345ead]">
                         <Link style={{ textDecoration: "none",color:'black' }} href="https://www.facebook.com/" target="_blank" spacing={0.5}>
@@ -88,7 +90,7 @@ export const Footer = () => {
                         </Link>
                       </Button>
                     </Grid>
-                  </Typography>
+        
                 </Stack>
               </Grid>
             </Grid>

@@ -24,7 +24,7 @@ export const Header = ()=>{
 
   <nav className="w-full sticky top-0 flex flex-row md:justify-center justify-between items-center p-4 bg-gradient-color-header border-rose-300">
       <div className="basis-1/4 flex justify-center item-center">
-        <Image src={logo} alt="logo" className="h-10 w-25 cursor-pointer" height="50" width="75" static />
+        <Image src={logo} alt="logo" className="h-10 w-25 cursor-pointer" height="75" width="100" fixed="true" />
       </div>
       <div className=" basis-1/2 flex justify-around item-center">
         <FormControl className="w-80 mx-3 px-4 rounded-md bg-red-200" variant="standard">

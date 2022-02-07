@@ -5,12 +5,13 @@ import {
   Button,
   Typography,
   Link,
-  TextField,Avatar
+  TextField,Avatar,FormControlLabel
 } from "@mui/material";
 
 import Checkbox from "@material-ui/core/Checkbox";
 import LockIcon from "@mui/icons-material/Lock";
 import { useState } from "react";
+
 export default function Login (){
   const paperStyle = {
     padding: 20,
@@ -63,11 +64,12 @@ export default function Login (){
           </Avatar>
           <h2>SIGN IN</h2>
         </Grid>
-        <TextField
+        <TextField 
         className="mb-4"
           label="Username"
           placeholder="Enter username"
           fullWidth
+          margin= "normal"
           autoComplete
           required
           error={(!validEmail)&&touchedEmail}
