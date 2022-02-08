@@ -3,7 +3,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import {useEffect, useState } from "react";
 
 import { FormGeneral } from "../components/FormGeneral";
-import {registerCampos, Register, Validator} from "../constants/registro/Registro"
+import {loginCampos, Register, Validator} from "../constants/registro/Registro"
 const avatarStyle = { backgroundColor: "black" };
 const btnstyle = { margin: "8px 0",color:"black","font-weight":"bold" };
 
@@ -20,7 +20,7 @@ const submitActions = ()=>{
           variant="contained"
           style={btnstyle}
           fullWidth
-          onClick={register}
+          onClick={Register}
         >
           Sign Up
         </Button>
@@ -50,12 +50,13 @@ const headerSection = ()=>{
 
 function register(){
   const [formData, setFormData] = useState(Register);
+  console.log(Register)
   useEffect (()=>{
     console.log(formData)
   },[formData])
   return (
   <div className="flex mt-8 flex-col min-h-screen h-max w-100 justify-center items-center">
-    <FormGeneral camps={registerCampos} formData={formData} setFormData={setFormData} validator={Validator} model={Register} header={headerSection()} submit={submitActions()}></FormGeneral>
+    <FormGeneral camps={loginCampos} formData={formData} setFormData={setFormData} validator={Validator} model={Register} header={headerSection()} submit={submitActions()}></FormGeneral>
   </div>
   );
 };

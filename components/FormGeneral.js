@@ -67,7 +67,7 @@ export const FormGeneral = ({ camps,setFormData,model,validator,formData,submit,
   //   console.log(formData)
   // }, [formData]);
   return (
-    <Card sx={{ maxWidth: 600 }} className='w-screen' elevation={9}>
+    <Card sx={{ maxWidth: 700 }} className='w-screen' elevation={9}>
       {header?(header):null}
       <CardContent className='mt-3'>
         <Box sx={{ "& > :not(style)": { m: 1 } }}>
@@ -83,11 +83,12 @@ export const FormGeneral = ({ camps,setFormData,model,validator,formData,submit,
         <CardActions className='flex justify-between mt-3 w-full'>
           <Fab className="hover:bg-rose-700 text-rose-100  bg-red-400 m-3 w-full" variant='extended' color='error' aria-label='add'>
             <CancelTwoToneIcon sx={{ mr: 1 }} />
-            Cancelar
+            Cancel
           </Fab>
           <Fab className="bg-indigo-500  hover:text-rose-100 m-3 w-full" variant='extended' color='primary' aria-label='add'>
             <AddBoxTwoToneIcon sx={{ mr: 1 }} />
-            Crear
+            
+          Create
           </Fab>
         </CardActions>
       )}

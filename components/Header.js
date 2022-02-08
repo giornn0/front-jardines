@@ -24,14 +24,19 @@ export const Header = () => {
   return (
     <nav className='w-full sticky top-0 flex flex-row md:justify-center justify-between items-center p-4 bg-gradient-color-header border-rose-300'>
       <div className='basis-1/4 flex justify-center item-center'>
+        <Link   href="http://localhost:3000/">
         <Image
           src={logo}
+         
           alt='logo'
           className='h-10 w-25 cursor-pointer'
           height='75'
           width='100'
           fixed='true'
         />
+      
+        </Link>
+       
       </div>
       <div className=' basis-1/2 flex justify-around item-center'>
         <FormControl
@@ -40,7 +45,7 @@ export const Header = () => {
         >
           <Input
             fullWidth
-            placeholder='Buscar ..'
+            placeholder='Search ..'
             id='searcher'
             value={search}
             onKeyDown={(e) => {
@@ -80,7 +85,7 @@ export const Header = () => {
             </p>
           </Link>
           <Link href='/register'>
-            <p className='bg-[#000] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#c46060]'>
+            <p className='bg-[#000] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]'>
               Registrar
             </p>
           </Link>
