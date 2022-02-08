@@ -10,6 +10,23 @@ import { FormControl, Input, InputAdornment } from "@mui/material";
 
 import logo from "../public/logoDefinitivo.png";
 
+const headerActions = () => {
+  return (
+    <>
+      <Link href='/login'>
+        <p className='bg-[#141313]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd] hover:font-bold hover:color-[#fff]'>
+          Login
+        </p>
+      </Link>
+      <Link href='/register'>
+        <p className='bg-[#141313] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#c46060] hover:font-bold hover:color-[#fff]'>
+          Registrar
+        </p>
+      </Link>
+    </>
+  );
+};
+
 export const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [search, setSearch] = useState("");
@@ -74,16 +91,7 @@ export const Header = () => {
       </div>
       <div className=' basis-1/4 flex justify-center item-center'>
         <div className='md:flex hidden flex-row w-100 justify-end item-center text-white'>
-          <Link href='/login'>
-            <p className='bg-[#000]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]'>
-              Login
-            </p>
-          </Link>
-          <Link href='/register'>
-            <p className='bg-[#000] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#c46060]'>
-              Registrar
-            </p>
-          </Link>
+          {headerActions()}
         </div>
       </div>
       <div className='flex relative'>
@@ -106,12 +114,7 @@ export const Header = () => {
           >
             <li className='text-xl w-full my-4  '>
               <CloseRoundedIcon onClick={() => setToggleMenu(false)} />
-              <button className='bg-[#2952e3]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[black]'>
-                Login
-              </button>
-              <button className='bg-[#2952e3] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[black]'>
-                Registrar
-              </button>
+              {headerActions()}
             </li>
           </ul>
         )}
