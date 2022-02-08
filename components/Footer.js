@@ -12,11 +12,8 @@ import {
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import {useState} from "react"
 
 export const Footer = () => {
-  const [hovering,setHovering] = useState('')
-
   return (
     <Grid >
       <Container className="h-max" sx={{ py: 6 }}>
@@ -75,26 +72,25 @@ export const Footer = () => {
               <Grid item xs={6} md={3}>
                 <Stack spacing={1}>
                   <h2>Social Media</h2>
+                
                     <Grid className="icons">
-                      <Typography><Link style={{ textDecoration: "none",color:'black' }} href="https://www.facebook.com/" target="_blank" spacing={0.5}>
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#345ead]" onMouseEnter={()=>{setHovering('face')}} onMouseLeave={()=>setHovering('')}>
-                          <FacebookIcon className={hovering=='face'?'text-white':'text-black'} />
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#345ead]">
+                        <Link style={{ textDecoration: "none",color:'black' }} href="https://www.facebook.com/" target="_blank" spacing={0.5}>
+                          <FacebookIcon />
+                        </Link>
                       </Button>
-                        </Link></Typography>
-                      <Typography><Link style={{ textDecoration: "none",color:'black' }}  href="https://www.instagram.com/" target="_blank" spacing={0.5}>
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#da385b]" onMouseEnter={()=>{setHovering('insta')}} onMouseLeave={()=>setHovering('')}>
-                          <InstagramIcon className={hovering=='insta'?'text-white':'text-black'}/>
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#b1476a]">
+                        <Link style={{ textDecoration: "none",color:'black' }} spacing={0.5}>
+                          <InstagramIcon />
+                        </Link>
                       </Button>
-                        </Link></Typography>
-                      <Typography><Link style={{ textDecoration: "none",color:'black' }}  href="https://www.twitter.com/" target="_blank" spacing={0.5}>
-                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#acddec]" onMouseEnter={()=>{setHovering('twitter')}} onMouseLeave={()=>setHovering('')}>
-                          <TwitterIcon className={hovering=='twitter'?'text-white':'text-black'}/>
+                      <Button className="h-10 px-5 text-black-100 transition-colors duration-150 bg-black-700 rounded-lg focus:shadow-outline hover:bg-black-800 cursor-pointer hover:bg-[#357d8f]">
+                        <Link style={{ textDecoration: "none",color:'black' }} spacing={0.5}>
+                          <TwitterIcon />
+                        </Link>
                       </Button>
-                        </Link></Typography>
-                        
-                        
-                        
                     </Grid>
+        
                 </Stack>
               </Grid>
             </Grid>

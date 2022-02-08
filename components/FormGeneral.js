@@ -67,7 +67,7 @@ export const FormGeneral = ({camps,setFormData,model,validator,formData,submit,h
   //   console.log(formData)
   // }, [formData]);
   return (
-    <Card sx={{ maxWidth: 500 }} className='w-screen' elevation={9}>
+    <Card sx={{ maxWidth: 600 }} className='w-screen' elevation={9}>
       {header?(header):null}
       <CardContent className='mt-3'>
         <Box sx={{ "& > :not(style)": { m: 1 } }}>

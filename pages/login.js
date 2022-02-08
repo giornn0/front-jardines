@@ -5,18 +5,18 @@ import {
   Button,
   Typography,
   Link,
-  TextField,
+  TextField,Avatar,FormControlLabel
 } from "@mui/material";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+
 import Checkbox from "@material-ui/core/Checkbox";
-import Avatar from "@mui/material/Avatar";
 import LockIcon from "@mui/icons-material/Lock";
 import { useState } from "react";
+
 export default function Login (){
   const paperStyle = {
     padding: 20,
     height: "70vh",
-    width: 280,
+    width: 500,
   };
   const avatarStyle = { backgroundColor: "black" };
   const btnstyle={margin:'8px 0'}
@@ -33,14 +33,14 @@ export default function Login (){
     if(control == 'password')setPassword(value)
   }
 
-  const testValidation = () =>{
+  const emailValidation = () =>{
     if(!email.match(/^[A-Za-z]{2,5}@[A-Za-z]{2,5}.com$/))setValidEmail(false)
     else setValidEmail(true)
     setTouchedEmail(true)
   }
   
 
- const testValidation2 = () =>{
+ const passValidation = () =>{
    console.log(password)
    if(!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/))setValidPassword(false)
    else setValidPassword(true)
@@ -64,25 +64,28 @@ export default function Login (){
           </Avatar>
           <h2>SIGN IN</h2>
         </Grid>
-        <TextField
+        <TextField 
         className="mb-4"
           label="Username"
           placeholder="Enter username"
           fullWidth
+          margin= "normal"
+          autoComplete
           required
           error={(!validEmail)&&touchedEmail}
           onChange = {(e) => {setValue(e.target.value)}}
-          onBlur={()=>{testValidation()}}
+          onBlur={()=>{emailValidation("email")}}
           />
         <TextField
           label="Password"
           placeholder="Enter password"
           type="password"
           fullWidth
+          autoComplete
           required
           error={(!validPassword)&&touchedPassword}
           onChange = {(e) => {setValue(e.target.value)}}
-          onBlur={()=>{testValidation2()}}
+          onBlur={()=>{passValidation()}}
         />
         <FormControlLabel
           control={<Checkbox name="checkedB" color="primary" />}
