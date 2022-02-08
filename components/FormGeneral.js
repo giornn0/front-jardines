@@ -54,7 +54,7 @@ const InputPersonal = ({
   );
 };
 
-export const FormGeneral = ({ camps,setFormData,model,validator,formData,submit,header}) => {
+export const FormGeneral = ({camps,setFormData,model,validator,formData,submit,header}) => {
   const [validated, setValidated] = useState(model);
   const validation = (control)=>{
     if(formData[control]?.length || validator[control]?.required) return formData[control]?.match(validator[control]?.pattern)
