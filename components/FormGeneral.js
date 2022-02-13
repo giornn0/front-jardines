@@ -15,6 +15,7 @@ const InputPersonal = ({
   icon,
   control,
   label,
+  password,
   variant,
   options,
   handleChange,
@@ -24,12 +25,13 @@ const InputPersonal = ({
     setFormData((prevs)=>({...prevs, [control]: e.target.value}))
   }
   return (
-    <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+    <Box  sx={{ display: "flex", alignItems: "flex-end",}}>
       {icon}
       <TextField
         id={control}
         select={options?true:false}
         multiline={textarea?true:false}
+        password="false"
         // error
         rows={textarea?5:0}
         value={value}

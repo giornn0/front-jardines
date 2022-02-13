@@ -7,8 +7,9 @@ import {
   Link,
   Typography,
 } from "@mui/material";
+
 import LockIcon from "@mui/icons-material/Lock";
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 
 import { FormGeneral } from "../components/FormGeneral";
 import {
@@ -19,7 +20,23 @@ import {
 const avatarStyle = { backgroundColor: "black" };
 const btnstyle = { margin: "8px 0", color: "black", "font-weight": "bold" };
 
+
 const submitActions = () => {
+  
+ const inicialValue = {name: "",email: "",password:"",phone:"",address:"",description:""};
+ const [formValues, setFormValues ] = useState(inicialValue);
+
+
+const handleChange = (e) => {
+  const {name,value} = e.target;
+  setFormValues({...formValues,[ name]: value});
+  
+ }
+ 
+const handleSubmit = (e) => {
+  e.preventDefault();
+}
+
   return (
     <div className='p-5'>
       <FormControlLabel
@@ -32,7 +49,9 @@ const submitActions = () => {
         variant='contained'
         style={btnstyle}
         fullWidth
-        onClick={register}
+        onClick= {handleChange}
+        onSubmit = {handleSubmit}
+       
       >
         Sign Up
       </Button>
