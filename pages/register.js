@@ -17,9 +17,9 @@ import {
   Validator,
 } from "../constants/registro/Registro";
 const avatarStyle = { backgroundColor: "black" };
-const btnstyle = { margin: "8px 0", color: "black", "font-weight": "bold" };
+const btnstyle = { margin: "8px 0", color: "black", fontWeight: "bold" };
 
-const submitActions = () => {
+const SubmitActions = () => {
   return (
     <div className='p-5'>
       <FormControlLabel
@@ -50,7 +50,7 @@ const submitActions = () => {
     </div>
   );
 };
-const headerSection = () => {
+const HeaderSection = () => {
   return (
     <Grid className='mt-4' align='center'>
       <Avatar style={avatarStyle}>
@@ -74,8 +74,8 @@ function register() {
         setFormData={setFormData}
         validator={Validator}
         model={Register}
-        header={headerSection()}
-        submit={submitActions()}
+        header={<HeaderSection/>}
+        submit={<SubmitActions/>}
       ></FormGeneral>
     </div>
   );

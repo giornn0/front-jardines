@@ -10,7 +10,7 @@ import { FormControl, Input, InputAdornment } from "@mui/material";
 
 import logo from "../public/logoDefinitivo.png";
 
-const headerActions = () => {
+const HeaderActions = () => {
   return (
     <>
       <Link href='/login'>
@@ -91,7 +91,7 @@ export const Header = () => {
       </div>
       <div className=' basis-1/4 flex justify-center item-center'>
         <div className='md:flex hidden flex-row w-100 justify-end item-center text-white'>
-          {headerActions()}
+          {<HeaderActions />}
         </div>
       </div>
       <div className='flex relative'>
@@ -114,7 +114,7 @@ export const Header = () => {
           >
             <li className='text-xl w-full my-4  '>
               <CloseRoundedIcon onClick={() => setToggleMenu(false)} />
-              {headerActions()}
+              {<HeaderActions />}
             </li>
           </ul>
         )}
