@@ -4,10 +4,9 @@ import {
   Paper,
   Button,
   Typography,
-  Link,
   TextField,Avatar,FormControlLabel
 } from "@mui/material";
-
+import  Link  from "next/link";
 import Checkbox from "@material-ui/core/Checkbox";
 import LockIcon from "@mui/icons-material/Lock";
 import { useState } from "react";
@@ -54,6 +53,8 @@ export default function Login (){
   }
 
 
+  
+
   //uses state y validar cuando quiera mandar que sea un mail y una contrasena
   return (
     <Grid className="flex flex-row pt-24 justify-center">
@@ -88,19 +89,19 @@ export default function Login (){
           onBlur={()=>{passValidation()}}
         />
         <FormControlLabel
-          control={<Checkbox name="checkedB" color="primary" />}
+          control={<Checkbox name="checkedB"  />}
           label="Remember me"
         />
-        <Button type="submit" color="primary" variant="contained" style={btnstyle} fullWidth onClick={login}>
+        <Button type="submit" variant="contained" className= 'bg-[#000]  py-0 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]'   style={btnstyle} fullWidth onClick={login}>
           Sign In
         </Button>
         <Typography>
-          <Link style={{ textDecoration: "none",color:'black' }} >Forgot password ?</Link>
+          <Link  href='#' style={{ textDecoration: "none",color:'black' }} >Forgot password ?</Link>
         </Typography>
         <Typography>
          
           Do you have an account ?
-          <Link  to='/register'style={{ textDecoration: "none",color:'black' }}>Sign Up</Link>
+          <Link  href='/register'style={{ textDecoration: "none",color:'black' }}>Sign Up</Link>
         </Typography>
       </Paper>
     </Grid>

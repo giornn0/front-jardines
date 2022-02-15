@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+ import Link  from "next/link";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import SearchSharpIcon from "@mui/icons-material/SearchSharp";
@@ -41,14 +41,21 @@ export const Header = () => {
   return (
     <nav className='w-full sticky top-0 flex flex-row md:justify-center justify-between items-center p-4 bg-gradient-color-header border-rose-300'>
       <div className='basis-1/4 flex justify-center item-center'>
+        <Link   href="http://localhost:3000/">
+          <a>
         <Image
           src={logo}
+         
           alt='logo'
           className='h-10 w-25 cursor-pointer'
           height='75'
           width='100'
           fixed='true'
         />
+          </a>
+      
+        </Link>
+       
       </div>
       <div className=' basis-1/2 flex justify-around item-center'>
         <FormControl
@@ -57,7 +64,7 @@ export const Header = () => {
         >
           <Input
             fullWidth
-            placeholder='Buscar ..'
+            placeholder='Search ..'
             id='searcher'
             value={search}
             onKeyDown={(e) => {
