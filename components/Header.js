@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+ import Link  from "next/link";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import SearchSharpIcon from "@mui/icons-material/SearchSharp";

@@ -4,10 +4,10 @@ import {
   Paper,
   Button,
   Typography,
-  Link,
+ 
   TextField,Avatar,FormControlLabel
 } from "@mui/material";
-
+import  Link  from "next/link";
 import Checkbox from "@material-ui/core/Checkbox";
 import LockIcon from "@mui/icons-material/Lock";
 import { useState } from "react";
@@ -102,7 +102,7 @@ export default function Login (){
         <Typography>
          
           Do you have an account ?
-          <Link  to='/register'style={{ textDecoration: "none",color:'black' }}>Sign Up</Link>
+          <Link  href='/register'style={{ textDecoration: "none",color:'black' }}>Sign Up</Link>
         </Typography>
       </Paper>
     </Grid>
