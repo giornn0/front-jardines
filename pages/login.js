@@ -1,114 +1,129 @@
-
 import {
-  Grid,
-  Paper,
+  Avatar,
   Button,
+  Checkbox,
+  FormControlLabel,
+  Grid,
   Typography,
- 
-  TextField,Avatar,FormControlLabel
 } from "@mui/material";
-import  Link  from "next/link";
-import Checkbox from "@material-ui/core/Checkbox";
+import Link  from "next/link";
 import LockIcon from "@mui/icons-material/Lock";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Login (){
-  const paperStyle = {
-    padding: 20,
-    height: "70vh",
-    width: 500,
+import { FormGeneral } from "../components/FormGeneral";
+import {
+ loginCampos,
+  Login,
+  Validator,
+} from "../constants/registro/Registro";
+const avatarStyle = { backgroundColor: "black" };
+const btnstyle = { margin: "8px 0", color: "black", "font-weight": "bold" };
+
+const submitActions = () => {
+  const inicialValue = {
+    
+    email: "",
+    password: "",
+    
   };
-  const avatarStyle = { backgroundColor: "black" };
-  const btnstyle={margin:'8px 0'}
-  const [email,setEmail] = useState('');
-  const [password,setPassword] = useState('');
-  const [validEmail,setValidEmail] = useState(false);
-  const [validPassword,setValidPassword] = useState(false);
-  const [touchedEmail,setTouchedEmail] = useState(false);
-  const [touchedPassword,setTouchedPassword] = useState(false);
+  const [formValues, setFormValues] = useState(inicialValue);
 
 
-   const setValue = (value,control) =>{
-    if(control == 'email')setEmail(value)
-    if(control == 'password')setPassword(value)
-  }
+  const handleChange = (e) => {
+  
+     const { email,password,value} = e.target; 
+     setFormValues({...formValues,[{ email, password}] : value }); 
+   
+  };
 
-  const emailValidation = () =>{
-    if(!email.match(/^[A-Za-z]{2,5}@[A-Za-z]{2,5}.com$/))setValidEmail(false)
-    else setValidEmail(true)
-    setTouchedEmail(true)
-  }
+
+const validatation = (values) => {
+  let errors = {};
   
 
- const passValidation = () =>{
-   console.log(password)
-   if(!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/))setValidPassword(false)
-   else setValidPassword(true)
-   setTouchedPassword(true)
- }
 
-  const login = () =>{
-   if(validEmail && validPassword) {
-     console.log({email,password})
-   }
-  }
-
-
+  if (!Validator.email) {
+    errors.email = "Email is Invalid";
+  } 
   
+    if (!Validator.password) {
+      errors.password = "Password is Invalid ";
+  } 
+ 
 
-  //uses state y validar cuando quiera mandar que sea un mail y una contrasena
-  return (
-    <Grid className="flex flex-row pt-24 justify-center">
-      <Paper elevation={10} style={paperStyle}>
-        <Grid align='center'>
-          <Avatar style={avatarStyle}>
-            <LockIcon />
-          </Avatar>
-          <h2>SIGN IN</h2>
-        </Grid>
-        <TextField 
-        className="mb-4"
-          label="Username"
-          placeholder="Enter username"
-          fullWidth
-          margin= "normal"
-          autoComplete
-          required
-          error={(!validEmail)&&touchedEmail}
-          onChange = {(e) => {setValue(e.target.value)}}
-          onBlur={()=>{emailValidation("email")}}
-          />
-        <TextField
-          label="Password"
-          placeholder="Enter password"
-          type="password"
-          fullWidth
-          autoComplete
-          required
-          error={(!validPassword)&&touchedPassword}
-          onChange = {(e) => {setValue(e.target.value)}}
-          onBlur={()=>{passValidation()}}
-        />
-        <FormControlLabel
-          control={<Checkbox name="checkedB"  />}
-          label="Remember me"
-        />
-        <Button type="submit" variant="contained" className= 'bg-[#000]  py-0 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd]'   style={btnstyle} fullWidth onClick={login}>
-          Sign In
-        </Button>
-        <Typography>
-          <Link style={{ textDecoration: "none",color:'black' }} >Forgot password ?</Link>
-        </Typography>
-        <Typography>
-         
-          Do you have an account ?
-          <Link  href='/register'style={{ textDecoration: "none",color:'black' }}>Sign Up</Link>
-        </Typography>
-      </Paper>
-    </Grid>
-  );
+return errors
 };
 
-Login.getLayout = (page)=>page
+const handleSubmit = (e) => {
+  e.preventDefault();
+}
+return (
+  <div className='p-5'>
+    <FormControlLabel
+      control={<Checkbox name='checkedB' color='primary' />}
+      label='Remember me'
+    />
+        <Button
+          type='submit'
+          color='primary'
+          variant='contained'
+          style={btnstyle}
+          fullWidth
+          onClick= {handleChange}
+          onSubmit = {handleSubmit}
+          onBlur={()=>{validatation()}}
+          
+        >
+          Sign Up
+        </Button>
+        <Typography>
+          <Link href='#' style={{ textDecoration: "none", color: "black" }}>
+            Forgot password ?
+          </Link>
+        </Typography>
+        <Typography>
+          Do you have an account ?
+          <Link href='/login' style={{ textDecoration: "none", color: "black" }}>
+            Sign In
+          </Link>
+        </Typography>
+      </div>
+    );
+  };
 
 
+  const headerSection = () => {
+    return (
+      <Grid className='mt-4' align='center'>
+        <Avatar style={avatarStyle}>
+          <LockIcon />
+        </Avatar>
+        <h2>LOGIN</h2>
+      </Grid>
+    );
+  };
+
+function login() {
+  const [formData, setFormData] = useState(Login);
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+  return (
+    <div className="flex flex-col min-h-screen h-max w-100 justify-center items-center">
+      <FormGeneral
+        camps={loginCampos}
+        formData={formData}
+        setFormData={setFormData}
+        validator={Validator}
+        model={Login}
+        header={headerSection()}
+        submit={submitActions()}
+      ></FormGeneral>
+    </div>
+  );
+}
+
+export default login;
+
+
+/* Login.getLayout = (page)=>page */
