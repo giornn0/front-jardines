@@ -9,6 +9,7 @@ import {
 import Link  from "next/link";
 import LockIcon from "@mui/icons-material/Lock";
 import React, { useEffect, useState } from "react";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 
 import { FormGeneral } from "../components/FormGeneral";
 import {
@@ -17,54 +18,21 @@ import {
   Validator,
 } from "../constants/registro/Registro";
 const avatarStyle = { backgroundColor: "black" };
-const btnstyle = { margin: "8px 0", color: "black", "font-weight": "bold" };
-
-const submitActions = () => {
-  const inicialValue = {
-    name: "",
-    email: "",
-    password: "",
-    phone: "",
-    address: "",
-    description: "",
-  };
-  const [formValues, setFormValues] = useState(inicialValue);
-
-  const handleChange = (e) => {
-  
-     const {name , email,password,phone,address,description,value} = e.target; 
-     setFormValues({...formValues,[{ name, email, password, phone, address, description}] : value }); 
-   
-  };
+const btnstyle = { margin: "8px 0", color: "black", fontWeight: "bold" };
 
 
-const validatation = (values) => {
-  let errors = {};
-
-  if (!Validator.name) {
-    errors.name = "Name is required";
+const SubmitActions = ({validForm}) => {
+  const submit = ()=>{
+    console.log('valid form, haciendo submit a API')
   }
-  if (!Validator.email) {
-    errors.email = "Email is Required";
-  } else if (/^[A-Za-z.0-9]{3,30}@[A-Za-z.]{3,30}\.(com|net)(\.(ar|cl|ur))?$/.test(values.email)
-  ) errors.email = 'Email is invalid'
-  {
-    if (!Validator.password) {
-      errors.password = "Password is Required";
-  } else if(values.password < 6){
-    errors.password = 'Password must be more than six characters.'
+  const alert = ()=>{
+    console.log('invalid form, alertar campos faltantes/erroneos')
   }
-  if (!Validator.phone) {
-    errors.phone = "Phone is required";
+  const isNotValid = ()=>{
+    console.log(validForm,Object.values(validForm).some(state=> !state))
+    return Object.values(validForm).some(state=> !state)
   }
-}
-return errors
-};
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-}
-return (
+  return (
   <div className='p-5'>
     <FormControlLabel
       control={<Checkbox name='checkedB' color='primary' />}
@@ -76,10 +44,9 @@ return (
           variant='contained'
           style={btnstyle}
           fullWidth
-          onClick= {handleChange}
-          onSubmit = {handleSubmit}
-          onBlur={()=>{validatation()}}
-         
+          onClick= {()=>{isNotValid()?alert():submit()}}
+          // onBlur={()=>{validatation()}}
+        
         >
           Sign Up
         </Button>
@@ -96,25 +63,54 @@ return (
         </Typography>
       </div>
     );
-  };
+};
 
-
-  const headerSection = () => {
-    return (
-      <Grid className='mt-4' align='center'>
-        <Avatar style={avatarStyle}>
-          <LockIcon />
-        </Avatar>
-        <h2>REGISTER</h2>
-      </Grid>
-    );
-  };
+const HeaderSection = () => {
+  return (
+    <Grid className='mt-4' align='center'>
+      <Avatar style={avatarStyle}>
+        <LockIcon />
+      </Avatar>
+      <h2>REGISTER</h2>
+    </Grid>
+  );
+};
 
 function register() {
   const [formData, setFormData] = useState(Register);
+  const [validated, setValidated] = useState(Register);
+
+  const validation = (campo, valor)=>{
+    if(valor?.length || Validator[campo]?.required) return valor?.match(Validator[campo]?.pattern)
+    return true
+  }
+
   useEffect(() => {
-    console.log(formData);
+    // const name = validation('name',formData.name);
+    // const address = validation('address',formData.address);
+    // const phone = validation('phone',formData.phone);
+    // const email = validation('email',formData.email);
+    // const password = validation('password',formData.password);
+    // const description = validation('description',formData.description);
+    // const type = validation('type',formData.type);
+
+    // const validObj={name,address,phone,email,password,description,type};
+    /*
+    Object.entries -> []todas los key-values donde cada indice es otro arreglo con el [key, value]
+    {
+      key1: value1
+      key2: value2
+      key3: value3
+    }
+    -> [[key1,value1],[key2,value2],[key3, value3]]
+    */
+   const validObj = {} 
+    Object.entries(formData).forEach(([campo, valor])=>{
+      validObj[campo] = validation(campo,formData[campo])?true:false;
+    })
+    setValidated(validObj)
   }, [formData]);
+
   return (
     <div className="flex flex-col min-h-screen h-max w-100 justify-center items-center">
       <FormGeneral
@@ -122,9 +118,8 @@ function register() {
         formData={formData}
         setFormData={setFormData}
         validator={Validator}
-        model={Register}
-        header={headerSection()}
-        submit={submitActions()}
+        header={<HeaderSection/>}
+        submit={<SubmitActions validForm={validated}/>}
       ></FormGeneral>
     </div>
   );

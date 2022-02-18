@@ -26,6 +26,7 @@ export const registerCampos = [
 
   {
     control: "password",
+    type:'password',
     label: "Password",
     icon: <ContactMailIcon sx={{ color: "action.active", mr: 1, my: 2 }} />,
   },
@@ -46,7 +47,7 @@ export const registerCampos = [
         label: "search school",
       },
     ],
-    label: "Que busca?",
+    label: "What are you looking for?",
     control: "type",
     icon: <ContactMailIcon sx={{ color: "action.active", mr: 1, my: 2 }} />,
   },
@@ -67,14 +68,13 @@ export const loginCampos = [
 ];
 
 export const Register = {
-  type: "",
   name: "",
-  state: true,
-  address: "",
-  description: "",
+  email: "",
   password: "",
   phone: "",
-  email: "",
+  address: "",
+  description: "",
+  type: "",
 };
 
 export const Login = {
@@ -84,11 +84,11 @@ export const Login = {
 };
 
 export const Validator = {
-  type: { required: true, pattern: /^[A-Za-z]{6,10}$/ },
+  type: { required: true, pattern: /^[A-Za-z]{5,10}$/ },
   name: { required: true, pattern: /^[A-Za-z ]{3,55}$/ },
-  addres: { required: true, pattern: /^[A-Za-z0-9 ]{3,255}$/ },
-  description: { required: true, pattern: /^[A-Za-z ]{3,255}$/ },
-  phonenumber: { required: true, pattern: /^\+?[0-9 ]{3,15}$/ },
+  address: { required: true, pattern: /^[A-Za-z0-9 ]{5,255}$/ },
+  description: { required: true, pattern: /^[A-Za-z ]{5,255}$/ },
+  phone: { required: true, pattern: /^\+?[0-9 ]{3,15}$/ },
   email: {
     required: true,
     pattern: /^[A-Za-z.0-9]{3,30}@[A-Za-z.]{3,30}\.(com|net)(\.(ar|cl|ur))?$/,

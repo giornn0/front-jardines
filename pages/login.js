@@ -5,6 +5,7 @@ import {
   FormControlLabel,
   Grid,
   Typography,
+  TextField,Avatar,FormControlLabel
 } from "@mui/material";
 import Link  from "next/link";
 import LockIcon from "@mui/icons-material/Lock";
@@ -77,9 +78,7 @@ return (
           Sign Up
         </Button>
         <Typography>
-          <Link href='#' style={{ textDecoration: "none", color: "black" }}>
-            Forgot password ?
-          </Link>
+          <Link  href='#' style={{ textDecoration: "none",color:'black' }} >Forgot password ?</Link>
         </Typography>
         <Typography>
           Do you have an account ?

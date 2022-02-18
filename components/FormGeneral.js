@@ -18,6 +18,7 @@ const InputPersonal = ({
   password,
   variant,
   options,
+  type,
   handleChange,
   setFormData
 }) => {
@@ -31,8 +32,8 @@ const InputPersonal = ({
         id={control}
         select={options?true:false}
         multiline={textarea?true:false}
-        password="false"
-        // error
+        type={type?type:'text'}
+        // error={!}
         rows={textarea?5:0}
         value={value}
         id={control}
@@ -56,18 +57,8 @@ const InputPersonal = ({
   );
 };
 
-export const FormGeneral = ({camps,setFormData,model,validator,formData,submit,header}) => {
-  const [validated, setValidated] = useState(model);
-  const validation = (control)=>{
-    if(formData[control]?.length || validator[control]?.required) return formData[control]?.match(validator[control]?.pattern)
-    return true
-  }
-  // useEffect(() => {
-  //   const status = {}
-  //   if(model)Object.keys(model).forEach(control=> status[control]= validation(control)?true:false)
-  //   console.log(status)
-  //   console.log(formData)
-  // }, [formData]);
+export const FormGeneral = ({camps,setFormData,validator,formData,submit,header}) => {
+ 
   return (
     <Card sx={{ maxWidth: 700 }} className='w-screen' elevation={9}>
       {header?(header):null}
