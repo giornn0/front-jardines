@@ -14,8 +14,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 
 export const Footer = () => {
   return (
-    <Grid>
-      <Container className='h-max' sx={{ py: 6 }}>
+    <Grid className=" flex justify-center">
+      <Container className="fixed bottom-0" >
         <Stack spacing={2}>
           <Box>
             <Grid container spacing={4}>
@@ -111,11 +111,11 @@ export const Footer = () => {
             </Grid>
           </Box>
           <div className='w-100 flex justify-center'>
-            <div>
-              <p className='mb-3'>
+            <Grid>
+              <p className='text-left p-4'>
                 © 2022 Schools.com, Inc. All Rights Reserved{" "}
               </p>
-            </div>
+            </Grid>
           </div>
         </Stack>
       </Container>

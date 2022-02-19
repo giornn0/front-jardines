@@ -108,7 +108,7 @@ function login() {
     console.log(formData);
   }, [formData]);
   return (
-    <div className="flex flex-col min-h-screen h-max w-100 justify-center items-center">
+    <div className="flex-col min-h-screen h-max w-100 justify-center items-center">
       <FormGeneral
         camps={loginCampos}
         formData={formData}
