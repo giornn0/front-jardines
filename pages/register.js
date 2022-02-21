@@ -46,6 +46,7 @@ const SubmitActions = ({validForm}) => {
           fullWidth
           onClick= {()=>{isNotValid()?alert():submit()}}
           // onBlur={()=>{validatation()}}
+          className = "bg-[#141313] hover:bg-[#2546bd] active:bg-[#2546bd] focus:outline-none focus:ring"
         
         >
           Sign Up

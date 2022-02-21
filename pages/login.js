@@ -4,119 +4,107 @@ import {
   Checkbox,
   FormControlLabel,
   Grid,
-  Typography,
-  TextField,Avatar,FormControlLabel
+  Typography,Box
 } from "@mui/material";
 import Link  from "next/link";
 import LockIcon from "@mui/icons-material/Lock";
 import React, { useEffect, useState } from "react";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 
 import { FormGeneral } from "../components/FormGeneral";
 import {
- loginCampos,
+  loginCampos,
   Login,
   Validator,
 } from "../constants/registro/Registro";
 const avatarStyle = { backgroundColor: "black" };
-const btnstyle = { margin: "8px 0", color: "black", "font-weight": "bold" };
-
-const submitActions = () => {
-  const inicialValue = {
-    
-    email: "",
-    password: "",
-    
-  };
-  const [formValues, setFormValues] = useState(inicialValue);
+/*  const btnstyle = { margin: "8px 0", color: "black", fontWeight: "bold" }; */ 
 
 
-  const handleChange = (e) => {
-  
-     const { email,password,value} = e.target; 
-     setFormValues({...formValues,[{ email, password}] : value }); 
-   
-  };
-
-
-const validatation = (values) => {
-  let errors = {};
-  
-
-
-  if (!Validator.email) {
-    errors.email = "Email is Invalid";
-  } 
-  
-    if (!Validator.password) {
-      errors.password = "Password is Invalid ";
-  } 
- 
-
-return errors
-};
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-}
-return (
-  <div className='p-5'>
+const SubmitActions = ({validForm}) => {
+  const submit = ()=>{
+    console.log('valid form, haciendo submit a API')
+  }
+  const alert = ()=>{
+    console.log('invalid form, alertar campos faltantes/erroneos')
+  }
+  const isNotValid = ()=>{
+    console.log(validForm,Object.values(validForm).some(state=> !state))
+    return Object.values(validForm).some(state=> !state)
+  }
+  return (
+  <div className=' m-4'>
     <FormControlLabel
-      control={<Checkbox name='checkedB' color='primary' />}
-      label='Remember me'
+      control={<Checkbox name='checkedB'  />}
+      label='Remember Me'
     />
         <Button
           type='submit'
           color='primary'
           variant='contained'
-          style={btnstyle}
           fullWidth
-          onClick= {handleChange}
-          onSubmit = {handleSubmit}
-          onBlur={()=>{validatation()}}
-          
+          onClick= {()=>{isNotValid()?alert():submit()}}
+          // onBlur={()=>{validatation()}}
+         
+         className= "bg-[#141313] hover:bg-[#2546bd] active:bg-[#2546bd]  font-bold focus:outline-none focus:ring "
         >
-          Sign Up
+          Sign In
         </Button>
         <Typography>
-          <Link  href='#' style={{ textDecoration: "none",color:'black' }} >Forgot password ?</Link>
+          <Link href='#' className= "no-underlinee ">
+            Forgot password ?
+          </Link>
         </Typography>
         <Typography>
+        
+          <Link href='/register' className= "underlinee ">
           Do you have an account ?
-          <Link href='/login' style={{ textDecoration: "none", color: "black" }}>
-            Sign In
           </Link>
         </Typography>
       </div>
     );
-  };
+};
 
-
-  const headerSection = () => {
-    return (
-      <Grid className='mt-4' align='center'>
-        <Avatar style={avatarStyle}>
-          <LockIcon />
-        </Avatar>
-        <h2>LOGIN</h2>
-      </Grid>
-    );
-  };
+const HeaderSection = () => {
+  return (
+    <Box  height="20vh" display="flex" flexDirection="column" >
+    <Grid className='mt-4' align='center'>
+      <Avatar style={avatarStyle}>
+        <LockIcon />
+      </Avatar>
+      <h2>LOGIN</h2>
+    </Grid>
+    </Box>
+  );
+};
 
 function login() {
   const [formData, setFormData] = useState(Login);
+  const [validated, setValidated] = useState(Login);
+
+  const validation = (campo, valor)=>{
+    if(valor?.length || Validator[campo]?.required) return valor?.match(Validator[valor]?.pattern)
+    return true
+  }
+
   useEffect(() => {
-    console.log(formData);
+  
+   const validObj = {} 
+    Object.entries(formData).forEach(([campo, valor])=>{
+      validObj[campo] = validation(campo,formData[valor])?true:false;
+    })
+    setValidated(validObj)
   }, [formData]);
+
   return (
-    <div className="flex-col min-h-screen h-max w-100 justify-center items-center">
+    <div className="flex flex-col min-h-screen h-max w-100 justify-center items-center">
       <FormGeneral
         camps={loginCampos}
         formData={formData}
         setFormData={setFormData}
         validator={Validator}
-        model={Login}
-        header={headerSection()}
-        submit={submitActions()}
+        header={<HeaderSection/>}
+        submit={<SubmitActions validForm={validated}/>}
       ></FormGeneral>
     </div>
   );
@@ -125,4 +113,4 @@ function login() {
 export default login;
 
 
-/* Login.getLayout = (page)=>page */
+ Login.getLayout = (page)=>page 

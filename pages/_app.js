@@ -4,7 +4,8 @@ import {Footer} from  "../components/Footer";
 
 function MyApp({ Component, pageProps }) {
   if(Component.getLayout){
-    const getLayout = Component.getLayout
+  
+     const getLayout = Component.getLayout 
     return (
       <>
       <link

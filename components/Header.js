@@ -19,7 +19,7 @@ const HeaderActions = () => {
         </p>
       </Link>
       <Link href='/register'>
-        <p className='bg-[#141313] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#c46060] hover:font-bold hover:color-[#fff]'>
+        <p className='bg-[#141313] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd] hover:font-bold hover:color-[#fff]'>
           Registrar
         </p>
       </Link>
