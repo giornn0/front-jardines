@@ -18,7 +18,7 @@ import {
   Validator,
 } from "../constants/registro/Registro";
 const avatarStyle = { backgroundColor: "black" };
-/*  const btnstyle = { margin: "8px 0", color: "black", fontWeight: "bold" }; */ 
+
 
 
 const SubmitActions = ({validForm}) => {
@@ -35,13 +35,14 @@ const SubmitActions = ({validForm}) => {
   return (
   <div className=' m-4'>
     <FormControlLabel
-      control={<Checkbox name='checkedB'  />}
+      control={<Checkbox name='checkedB'/>}
       label='Remember Me'
     />
         <Button
           type='submit'
           color='primary'
           variant='contained'
+        
           fullWidth
           onClick= {()=>{isNotValid()?alert():submit()}}
           // onBlur={()=>{validatation()}}
@@ -67,7 +68,7 @@ const SubmitActions = ({validForm}) => {
 
 const HeaderSection = () => {
   return (
-    <Box  height="20vh" display="flex" flexDirection="column" >
+    <Box  height="12vh" display="flex" flexDirection="column" >
     <Grid className='mt-4' align='center'>
       <Avatar style={avatarStyle}>
         <LockIcon />

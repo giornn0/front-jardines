@@ -6,7 +6,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import CheckBoxSharpIcon from "@mui/icons-material/CheckBoxSharp";
 import CancelSharpIcon from "@mui/icons-material/CancelSharp";
-import { FormControl, Input, InputAdornment } from "@mui/material";
+import { FormControl, Input, InputAdornment,List } from "@mui/material";
 
 import logo from "../public/logoDefinitivo.png";
 
@@ -15,14 +15,15 @@ const HeaderActions = () => {
     <>
       <Link href='/login'>
         <p className='bg-[#141313]  py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd] hover:font-bold hover:color-[#fff]'>
-          Login
-        </p>
+         Login
+        </p>z
       </Link>
       <Link href='/register'>
         <p className='bg-[#141313] py-2 px-7 mx-4 rounded-lg cursor-pointer hover:bg-[#2546bd] hover:font-bold hover:color-[#fff]'>
-          Registrar
+          Register
         </p>
       </Link>
+      
     </>
   );
 };
@@ -41,7 +42,7 @@ export const Header = () => {
   return (
     <nav className='w-full sticky top-0 flex flex-row md:justify-center justify-between items-center p-4 bg-gradient-color-header border-rose-300'>
       <div className='basis-1/4 flex justify-center item-center'>
-        <Link   href="http://localhost:3000/">
+        <Link href="http://localhost:3000/">
           <a>
         <Image
           src={logo}
